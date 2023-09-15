@@ -5,9 +5,6 @@ inputs:
   env:
     description: 'Environment to test. will use the corresponding {$env}/vars.tfvars and {$env}/backend.tfvars files'
     required: true
-  tf_dir:
-    description: 'Terraform directory to run'
-    required: true
   plan_args:
     description: 'Terraform args to pass to the plan command'
     default: ""
