@@ -2,9 +2,6 @@ name: 'terraform-plan'
 description: 'launch terraform init, validate and plan check terraform scripts'
 
 inputs:
-  working_dir:
-    description: 'Working directory where terraform commands will be executed'
-    required: true
   tfbakend_file:
     description: 'Path and the backend file that will be used by terraform init'
     required: true
