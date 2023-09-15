@@ -2,8 +2,11 @@ name: 'terraform-plan'
 description: 'launch terraform init, validate and plan check terraform scripts'
 
 inputs:
-  env:
-    description: 'Environment to test. will use the corresponding {$env}/vars.tfvars and {$env}/backend.tfvars files'
+  tfbakend_file:
+    description: 'Path and the backend file that will be used by terraform init'
+    required: true
+  tfvars_file:
+    description: 'Path and the backend file that will be used by terraform plan'
     required: true
   plan_args:
     description: 'Terraform args to pass to the plan command'
@@ -21,7 +24,7 @@ runs:
 
   - name: Terraform init
     shell: bash
-    run: terraform init -backend-config="./env/${{ inputs.env }}/config.tfbackend"
+    run: terraform init -backend-config=$${{ inputs.tfbakend_file }}}
     
   - name: Terraform validate
     shell: bash
@@ -29,4 +32,4 @@ runs:
 
   - name: Terraform plan
     shell: bash
-    run: terraform plan -var-file=./env/${{ inputs.env }}/vars.tfvars ${{ inputs.plan_args }}
+    run: terraform plan -var-file=${{ inputs.tfvars_file }} ${{ inputs.plan_args }}
