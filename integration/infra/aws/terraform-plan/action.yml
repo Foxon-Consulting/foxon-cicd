@@ -24,9 +24,9 @@ runs:
     shell: bash
     run: pwd   
 
-  - name: pwd 2
+  - name: ls
     shell: bash
-    run: pwd
+    run: ls -la
 
   - name: Setup Terraform
     uses: hashicorp/setup-terraform@v2
