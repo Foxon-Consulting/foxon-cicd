@@ -23,24 +23,18 @@ runs:
   - name: Checkout
     uses: actions/checkout@v3
 
-  - name: pwd 1
-    shell: bash
-    run: pwd   
-    working-directory: ${{ inputs.working_dir }}
-
   - name: Setup Terraform
     uses: hashicorp/setup-terraform@v2
 
   - name: Terraform init
     shell: bash
-    run: terraform init -backend-config=${{ inputs.tfbackend_file }}}
+    run: terraform init -backend-config=${{ inputs.tfbackend_file }}
     working-directory: ${{ inputs.working_dir }}
     
   - name: Terraform validate
     shell: bash
     run: terraform validate
     working-directory: ${{ inputs.working_dir }}
-
 
   - name: Terraform plan
     shell: bash
