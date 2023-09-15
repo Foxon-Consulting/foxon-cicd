@@ -33,7 +33,7 @@ runs:
 
   - name: Terraform init
     shell: bash
-    run: terraform init -backend-config=$${{ inputs.tfbakend_file }}}
+    run: terraform init -backend-config=${{ inputs.tfbakend_file }}}
     working-directory: ${{ inputs.working_dir }}
     
   - name: Terraform validate
