@@ -2,6 +2,9 @@ name: 'terraform-plan'
 description: 'launch terraform init, validate and plan check terraform scripts'
 
 inputs:
+  working_dir:
+    description: 'Working directory where terraform commands will be executed'
+    required: true
   tfbakend_file:
     description: 'Path and the backend file that will be used by terraform init'
     required: true
@@ -13,31 +16,38 @@ inputs:
     default: ""
     required: false
     
+
 runs:
   using: "composite"
   steps:
   - name: Checkout
     uses: actions/checkout@v3
+    working-directory: ${{ inputs.working_dir }}
 
-  - name: pwd
+  - name: pwd 1
     shell: bash
     run: pwd   
 
-  - name: pwd
+  - name: pwd 2
     shell: bash
     run: pwd
+    working-directory: ${{ inputs.working_dir }}
 
   - name: Setup Terraform
     uses: hashicorp/setup-terraform@v2
+    working-directory: ${{ inputs.working_dir }}
 
   - name: Terraform init
     shell: bash
     run: terraform init -backend-config=$${{ inputs.tfbakend_file }}}
+    working-directory: ${{ inputs.working_dir }}
     
   - name: Terraform validate
     shell: bash
     run: terraform validate
+    working-directory: ${{ inputs.working_dir }}
 
   - name: Terraform plan
     shell: bash
     run: terraform plan -var-file=${{ inputs.tfvars_file }} ${{ inputs.plan_args }}
+    working-directory: ${{ inputs.working_dir }}
