@@ -24,10 +24,6 @@ runs:
 
   - name: Terraform init
     shell: bash
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     run: terraform init -backend-config="./env/${{ inputs.env }}/config.tfbackend"
     
   - name: Terraform validate
@@ -36,8 +32,4 @@ runs:
 
   - name: Terraform plan
     shell: bash
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     run: terraform plan -var-file=./env/${{ inputs.env }}/vars.tfvars ${{ inputs.plan_args }}
