@@ -20,13 +20,9 @@ runs:
   - name: Checkout
     uses: actions/checkout@v3
 
-  - name: pwd 1
-    shell: bash
-    run: pwd   
-
   - name: ls
     shell: bash
-    run: ls -la
+    run: ls -la /home/runner/work/dolibarr_iac/dolibarr_iac
 
   - name: Setup Terraform
     uses: hashicorp/setup-terraform@v2
