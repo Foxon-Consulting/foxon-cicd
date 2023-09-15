@@ -35,7 +35,6 @@ runs:
     shell: bash
     run: terraform validate
 
-
   - name: Terraform plan
     shell: bash
     run: terraform plan -var-file=${{ inputs.tfvars_file }} ${{ inputs.plan_args }}
