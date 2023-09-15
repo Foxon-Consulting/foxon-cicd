@@ -26,7 +26,7 @@ runs:
 
   - name: ls
     shell: bash
-    run: ls -la ./terraform
+    run: ls -la ./terraform/vpc/env
 
   - name: Setup Terraform
     uses: hashicorp/setup-terraform@v2
