@@ -1,0 +1,76 @@
+name: 'terraform-plan'
+
+inputs:
+  env:
+    description: 'Environment to test. will use the corresponding {$env}/vars.tfvars and {$env}/backend.tfvars files'
+    required: true
+  tf_dir:
+    description: 'Terraform directory to run'
+    required: true
+  plan_args:
+    description: 'Terraform args to pass to the plan command'
+    default: ""
+    
+# secrets:
+#   AWS_ACCESS_KEY_ID:
+#     description: 'AWS_ACCESS_KEY_ID'
+#     required: true
+#   AWS_SECRET_ACCESS_KEY:
+#     description: 'AWS_SECRET_ACCESS_KEY'
+#     required: true
+
+runs:
+  using: "composite"
+  steps:
+  - name: Checkout
+    uses: actions/checkout@v3
+
+  - name: Setup Terraform
+    uses: hashicorp/setup-terraform@v2
+
+  - name: Terraform Init
+    shell: bash
+    run: terraform init -backend-config="./env/${{ inputs.env }}/config.tfbackend"
+
+  - name: Terraform validate
+    shell: bash
+    run: terraform validate
+
+  - name: Terraform plan
+    shell: bash
+    run: terraform plan -var-file=./env/${{ inputs.env }}/vars.tfvars ${{ inputs.plan_args }}
+
+# jobs:
+#   terraform-plan:
+#     runs-on: ubuntu-latest
+#     defaults:
+#       run:
+#         working-directory: ${{ inputs.tf_dir }}
+#     permissions:
+#       contents: read
+#       pull-requests: write
+#       repository-projects: read
+
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v3
+
+#     - name: Setup Terraform
+#       uses: hashicorp/setup-terraform@v2
+
+#     - name: Terraform Init
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#       run: terraform init -backend-config="./env/${{ inputs.env }}/config.tfbackend"
+
+#     - name: Terraform validate
+#       run: terraform validate
+
+#     - name: Terraform plan
+#       run: terraform plan -var-file=./env/${{ inputs.env }}/vars.tfvars ${{ inputs.plan_args }}
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
