@@ -5,7 +5,7 @@ inputs:
   working_dir:
     description: 'Working directory'
     default: "."
-  tfbakend_file:
+  tfbackend_file:
     description: 'Path and the backend file that will be used by terraform init'
     required: true
   tfvars_file:
@@ -33,7 +33,7 @@ runs:
 
   - name: Terraform init
     shell: bash
-    run: terraform init -backend-config=${{ inputs.tfbakend_file }}}
+    run: terraform init -backend-config=${{ inputs.tfbackend_file }}}
     working-directory: ${{ inputs.working_dir }}
     
   - name: Terraform validate
