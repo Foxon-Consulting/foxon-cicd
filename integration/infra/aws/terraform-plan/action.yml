@@ -20,7 +20,8 @@ runs:
     uses: actions/checkout@v3
 
   - name: pwd
-    run: pwd
+    shell: bash
+    run: pwd   
 
   - name: pwd
     shell: bash
