@@ -1,0 +1,12 @@
+name: simple delivery
+
+on:
+  workflow_call:
+
+jobs:
+  simple_integration:
+    # echo Hello World
+    runs-on: ubuntu-latest
+    steps:
+      - name: simple
+        uses: Foxon-Consulting/github-actions/delivery/actions/simple@cicd

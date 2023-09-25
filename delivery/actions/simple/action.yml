@@ -1,0 +1,12 @@
+name: 'simple delivery'
+description: 'Testing actions for workflow composition'
+
+runs:
+  using: "composite"
+  steps:
+  - name: First step
+    shell: bash
+    run: echo "First step simple delivery"
+  - name: Second step
+    shell: bash
+    run: echo "Second step simple delivery"

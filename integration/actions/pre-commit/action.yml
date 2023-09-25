@@ -1,0 +1,9 @@
+name: 'pre-commit'
+description: 'launch all pre-commit checks present in .pre-commit-config.yaml of the repository'
+
+runs:
+  using: "composite"
+  steps:
+  - uses: actions/checkout@v3
+  - uses: actions/setup-python@v3
+  - uses: pre-commit/action@v3.0.0

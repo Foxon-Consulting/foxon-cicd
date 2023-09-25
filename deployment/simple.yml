@@ -1,0 +1,11 @@
+on:
+  workflow call:
+
+
+
+jobs:
+  simple_integration:
+    # echo Hello World
+    steps:
+      - name: simple
+        run: echo "DEPLOYMENT for simple directory"
