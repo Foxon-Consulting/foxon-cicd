@@ -1,10 +1,10 @@
-name: simple integration
+name: simple deployment
 
 on:
   workflow_call:
 
 jobs:
-  simple_integration:
+  simple_deployment:
     # echo Hello World
     runs-on: ubuntu-latest
     steps:
