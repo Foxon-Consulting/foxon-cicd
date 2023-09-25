@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/Foxon-Consulting/github-actions/compare/1.1.0...1.2.0) (2023-09-25)
+
+
+### Features
+
+* :sparkles: add cookicutter model ([c901345](https://github.com/Foxon-Consulting/github-actions/commit/c90134530c39906790b2d5464b04ff9f8aff83b6))
+* :truck: rename and move actions ([#4](https://github.com/Foxon-Consulting/github-actions/issues/4)) ([e7f98a6](https://github.com/Foxon-Consulting/github-actions/commit/e7f98a637be7c45ad48831c030b50dba1185c8af))
+
+
+### Bug Fixes
+
+* :truck: fix path in pre-commit and release-please ([c0c07ff](https://github.com/Foxon-Consulting/github-actions/commit/c0c07ffc58eadcf6de9d54b522544542687e9ca2))
+
 ## [1.1.0](https://github.com/Foxon-Consulting/github-actions/compare/v1.0.0...1.1.0) (2023-09-25)
 
 
