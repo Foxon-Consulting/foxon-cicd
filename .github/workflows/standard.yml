@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pre-commit
-        uses: Foxon-Consulting/github-actions/integration/actions/pre-commit@cicd
+        uses: Foxon-Consulting/github-actions/integration/actions/pre-commit@main
 
   integration:
-    uses: Foxon-Consulting/github-actions/.github/workflows/simple_integration.yml@cicd
+    uses: Foxon-Consulting/github-actions/.github/workflows/simple_integration.yml@main
 
   releasing:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: releasing
-        uses: Foxon-Consulting/github-actions/delivery/actions/release-please@cicd
+        uses: Foxon-Consulting/github-actions/delivery/actions/release-please@main
 
   delivery:
     needs:
@@ -34,7 +34,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: Foxon-Consulting/github-actions/.github/workflows/simple_delivery.yml@cicd
+    uses: Foxon-Consulting/github-actions/.github/workflows/simple_delivery.yml@main
 
   deployment:
     needs:
@@ -44,4 +44,4 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: Foxon-Consulting/github-actions/.github/workflows/simple_deployment.yml@cicd
+    uses: Foxon-Consulting/github-actions/.github/workflows/simple_deployment.yml@main
