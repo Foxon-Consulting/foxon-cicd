@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: simple
-        uses: Foxon-Consulting/github-actions/deployment/actions/simple@cicd
+        uses: Foxon-Consulting/github-actions/deployment/actions/simple@main
