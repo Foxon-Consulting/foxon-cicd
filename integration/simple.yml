@@ -1,0 +1,9 @@
+on:
+  workflow call:
+
+jobs:
+  simple_integration:
+    # echo Hello World
+    steps:
+      - name: simple
+        uses: Foxon-Consulting/cicd/integration/actions/simple@main

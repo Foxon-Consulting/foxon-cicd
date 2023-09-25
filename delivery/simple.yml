@@ -1,0 +1,11 @@
+on:
+  workflow call:
+
+
+
+jobs:
+  simple_delivery:
+    # echo Hello World
+    steps:
+      - name: simple
+        run: echo "DELIVERY for simple directory"
