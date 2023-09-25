@@ -3,7 +3,7 @@ name: delivery
 on:
   workflow_run:
     workflows: ["integration"]
-    branches: [main]
+    branches: [cicd] # TODO: to change into "main"
     types:
       - completed
 

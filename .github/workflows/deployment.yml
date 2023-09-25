@@ -3,7 +3,7 @@ name: dev-deployment
 on:
   workflow_run:
     workflows: ["delivery"]
-    branches: [main]
+    branches: [cicd] # TODO: to change into "main"
     types:
       - completed
 
