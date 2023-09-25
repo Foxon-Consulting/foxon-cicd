@@ -4,9 +4,9 @@ on:
   workflow_call:
 
 jobs:
-  simple:
+  python:
     # echo Hello World
     runs-on: ubuntu-latest
     steps:
       - name: simple
-        uses: Foxon-Consulting/github-actions/delivery/simple/delivery_step@main
+        uses: Foxon-Consulting/github-actions/delivery/actions/simple@main
