@@ -1,0 +1,16 @@
+name: delivery
+
+on:
+  workflow_run:
+    workflows: ["integration"]
+    branches: [main]
+    types:
+      - completed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    uses: Foxon-Consulting/github-actions/.github/workflows/simple_delivery.yml@cicd

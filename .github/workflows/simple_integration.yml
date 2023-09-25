@@ -10,3 +10,4 @@ jobs:
     steps:
       - name: simple
         uses: Foxon-Consulting/github-actions/integration/actions/simple@cicd
+

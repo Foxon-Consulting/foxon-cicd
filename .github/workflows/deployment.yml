@@ -1,0 +1,12 @@
+name: dev-deployment
+
+on:
+  workflow_run:
+    workflows: ["delivery"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  deployment:
+    uses: Foxon-Consulting/github-actions/.github/workflows/simple_deployment.yml@cicd
