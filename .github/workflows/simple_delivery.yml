@@ -1,4 +1,4 @@
-name: simple integration
+name: simple delivery
 
 on:
   workflow_call:
