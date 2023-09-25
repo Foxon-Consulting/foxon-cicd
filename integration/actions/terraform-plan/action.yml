@@ -15,7 +15,7 @@ inputs:
     description: 'Terraform args to pass to the plan command'
     default: ""
     required: false
-    
+
 
 runs:
   using: "composite"
@@ -30,7 +30,7 @@ runs:
     shell: bash
     run: terraform init -backend-config=${{ inputs.tfbackend_file }}
     working-directory: ${{ inputs.working_dir }}
-    
+
   - name: Terraform validate
     shell: bash
     run: terraform validate
