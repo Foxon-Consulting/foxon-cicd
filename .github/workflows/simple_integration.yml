@@ -1,12 +1,12 @@
-name: simple integration
+name: Integration
 
 on:
   workflow_call:
 
 jobs:
-  simple_integration:
+  lint:
     # echo Hello World
     runs-on: ubuntu-latest
     steps:
       - name: simple
-        uses: Foxon-Consulting/github-actions/integration/actions/simple@main
+        uses: Foxon-Consulting/github-actions/integration/simple/integration_step@main
