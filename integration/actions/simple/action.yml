@@ -1,4 +1,4 @@
-name: 'hello'
+name: 'simple integration'
 description: 'Testing actions for workflow composition'
 
 runs:
