@@ -6,4 +6,4 @@ jobs:
     # echo Hello World
     steps:
       - name: simple
-        uses: Foxon-Consulting/cicd/integration/actions/simple@main
+        uses: Foxon-Consulting/cicd/integration/actions/simple@cicd
