@@ -9,4 +9,3 @@ jobs:
     steps:
       - name: simple
         uses: Foxon-Consulting/github-actions/deployment/simple/deployment_step@main
-    # TODO
