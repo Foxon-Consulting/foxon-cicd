@@ -2,10 +2,6 @@ name: Integration
 
 on:
   workflow_call:
-    secrets:
-      SONAR_TOKEN:
-        required: true
-
 
 jobs:
   lint:
@@ -36,7 +32,3 @@ jobs:
       - name: Test with tox
         run: |
           tox
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
