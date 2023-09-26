@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: simple
-        uses: Foxon-Consulting/github-actions/integration/simple/integration_step@main
+        uses: Foxon-Consulting/github-actions/integration/terraform/validate@tf_module
