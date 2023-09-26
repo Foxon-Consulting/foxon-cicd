@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.3.0](https://github.com/Foxon-Consulting/github-actions/compare/1.2.0...1.3.0) (2023-09-26)
+
+
+### Features
+
+* :construction_worker: add build step into integration ([#9](https://github.com/Foxon-Consulting/github-actions/issues/9)) ([35935f8](https://github.com/Foxon-Consulting/github-actions/commit/35935f8c66799cc599cbe7ec26eeeb7941f15c76))
+* :construction_worker: add terraform integration validation ([#10](https://github.com/Foxon-Consulting/github-actions/issues/10)) ([e15a8c2](https://github.com/Foxon-Consulting/github-actions/commit/e15a8c252b9c614772d37181f55032f3df8ee695))
+* add tf composition cicd ([#11](https://github.com/Foxon-Consulting/github-actions/issues/11)) ([766f06a](https://github.com/Foxon-Consulting/github-actions/commit/766f06aeadb678c50584c605c3a4db1c670b0fee))
+
+
+### Bug Fixes
+
+* :bug: fix python issues ([#7](https://github.com/Foxon-Consulting/github-actions/issues/7)) ([d0c8c36](https://github.com/Foxon-Consulting/github-actions/commit/d0c8c36f83728f8ad3e14a783b26c15eb8b18b6a))
+* :heavy_plus_sign: add precommit dependencies for releasing ([7cac8c8](https://github.com/Foxon-Consulting/github-actions/commit/7cac8c8191a3a475ad6559fa335fdbe91a66e59e))
+* :truck: remove sonar step ([#8](https://github.com/Foxon-Consulting/github-actions/issues/8)) ([08af2b4](https://github.com/Foxon-Consulting/github-actions/commit/08af2b4bda0c246b41372f28e66cf1e7e43d9b03))
+
 ## [1.2.0](https://github.com/Foxon-Consulting/github-actions/compare/1.1.0...1.2.0) (2023-09-25)
 
 
