@@ -5,9 +5,8 @@ on:
 
 jobs:
   lint:
-    # echo Hello World
     runs-on: ubuntu-latest
     steps:
       - name: simple
-        uses: Foxon-Consulting/github-actions/deployment/actions/simple@main
+        uses: Foxon-Consulting/github-actions/deployment/simple/deployment_step@main
     # TODO
