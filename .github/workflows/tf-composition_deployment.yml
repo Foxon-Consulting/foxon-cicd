@@ -1,0 +1,11 @@
+name: Deployment
+
+on:
+  workflow_call:
+
+jobs:
+  simple:
+    runs-on: ubuntu-latest
+    steps:
+      - name: simple
+        uses: Foxon-Consulting/github-actions/deployment/simple/deployment_step@main
