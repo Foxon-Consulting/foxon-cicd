@@ -20,7 +20,7 @@ jobs:
           pip install .
       - name: Install CI dependencies
         run: |
-          pip install --no-input flake8 black tox
+          pip install --no-input flake8 black tox pytest
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
