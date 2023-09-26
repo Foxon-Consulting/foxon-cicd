@@ -1,0 +1,11 @@
+name: Integration
+
+on:
+  workflow_call:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: simple
+        uses: Foxon-Consulting/github-actions/integration/terraform/validate@tf_module

@@ -1,0 +1,11 @@
+name: Delivery
+
+on:
+  workflow_call:
+
+jobs:
+  simple:
+    runs-on: ubuntu-latest
+    steps:
+      - name: simple
+        uses: Foxon-Consulting/github-actions/delivery/simple/delivery_step@main
