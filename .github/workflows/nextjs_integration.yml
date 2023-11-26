@@ -3,7 +3,7 @@ name: Integration
 on:
   workflow_call:
     inputs:
-      node_version:
+      node-version:
         description: 'Node version to use'
         required: true
         type: string
@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "${{ inputs.node_version }}"
+          node-version: "${{ inputs.node-version }}"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Restore cache
         uses: actions/cache@v3
@@ -60,7 +60,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "${{ inputs.node_version }}"
+          node-version: "${{ inputs.node-version }}"
       - name: install
         run: npm ci
       - name: test
