@@ -2,11 +2,11 @@ name: Integration
 
 on:
   workflow_call:
-    inputs:
-      node-version:
-        description: 'Node version to use'
-        required: true
-        type: string
+    # inputs:
+    #   node-version:
+    #     description: 'Node version to use'
+    #     required: true
+    #     type: string
 
 jobs:
   build:
