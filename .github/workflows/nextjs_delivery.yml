@@ -2,16 +2,15 @@ name: Delivery
 
 on:
   workflow_call:
-
-secrets:
-  docker-username:
-    description: 'Docker username'
-    required: true
-    type: string
-  docker-password:
-    description: 'Docker password'
-    required: true
-    type: string
+    secrets:
+      docker-username:
+        description: 'Docker username'
+        required: true
+        type: string
+      docker-password:
+        description: 'Docker password'
+        required: true
+        type: string
     
 
 
