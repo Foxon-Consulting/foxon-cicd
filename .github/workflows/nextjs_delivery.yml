@@ -3,7 +3,7 @@ name: Delivery
 on:
   workflow_call:
 
-inputs:
+secrets:
   docker-username:
     description: 'Docker username'
     required: true
