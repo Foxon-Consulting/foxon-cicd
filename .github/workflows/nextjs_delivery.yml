@@ -31,9 +31,9 @@ jobs:
       - name: Tag image
         run: |
           if [ $GITHUB_REF_TYPE == 'tag' ]; then
-            docker tag next-deploy-img:temp lizzieb1416/next-deploy-img:${GITHUB_REF_NAME}
-            docker push lizzieb1416/next-deploy-img:${GITHUB_REF_NAME}
+            docker tag next-deploy-img:temp foxonconsulting/next-deploy-img:${GITHUB_REF_NAME}
+            docker push foxonconsulting/next-deploy-img:${GITHUB_REF_NAME}
           else
-            docker tag next-deploy-img:temp lizzieb1416/next-deploy-img:${GITHUB_SHA}
-            docker push lizzieb1416/next-deploy-img:${GITHUB_SHA}
+            docker tag next-deploy-img:temp foxonconsulting/next-deploy-img:${GITHUB_SHA}
+            docker push foxonconsulting/next-deploy-img:${GITHUB_SHA}
           fi
