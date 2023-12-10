@@ -7,6 +7,12 @@ on:
         required: true
       docker-password:
         required: true
+    inputs:
+      deploy-image-name: 
+        description: 'Name of image to deploy'
+        required: true
+        type: string
+        default: 'app-deploy-img'
     
 
 
@@ -17,7 +23,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: next-deploy-img
+          name: ${{ inputs.deploy-image-name }}
           path: /tmp
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -26,14 +32,14 @@ jobs:
           password: ${{ secrets.docker-password }}
       - name: Load image
         run: |
-          docker load --input /tmp/next-deploy-img.tar
+          docker load --input /tmp/${{ inputs.deploy-image-name }}.tar
       # Tag image with git sha if not a tag, with the tag if it is a tag
       - name: Tag image
         run: |
           if [ $GITHUB_REF_TYPE == 'tag' ]; then
-            docker tag next-deploy-img:temp foxonconsulting/next-deploy-img:${GITHUB_REF_NAME}
-            docker push foxonconsulting/next-deploy-img:${GITHUB_REF_NAME}
+            docker tag ${{ inputs.deploy-image-name }}:temp foxonconsulting/${{ inputs.deploy-image-name }}:${GITHUB_REF_NAME}
+            docker push foxonconsulting/${{ inputs.deploy-image-name }}:${GITHUB_REF_NAME}
           else
-            docker tag next-deploy-img:temp foxonconsulting/next-deploy-img:${GITHUB_SHA}
-            docker push foxonconsulting/next-deploy-img:${GITHUB_SHA}
+            docker tag ${{ inputs.deploy-image-name }}:temp foxonconsulting/${{ inputs.deploy-image-name }}:${GITHUB_SHA}
+            docker push foxonconsulting/${{ inputs.deploy-image-name }}:${GITHUB_SHA}
           fi
