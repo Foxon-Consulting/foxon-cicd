@@ -6,6 +6,7 @@ on:
       artifact-name:
         description: 'Name of artifact to download'
         required: true
+        type: string
         # default: 'next-project-artifact'
 
 jobs:
