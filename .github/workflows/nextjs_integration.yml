@@ -62,13 +62,13 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-          tags: ${{ inputs.deploy-image-name }}-img:temp
-          outputs: type=docker,dest=/tmp/${{ inputs.deploy-image-name }}-img.tar
+          tags: ${{ inputs.deploy-image-name }}:temp
+          outputs: type=docker,dest=/tmp/${{ inputs.deploy-image-name }}.tar
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ inputs.deploy-image-name }}-img
-          path: /tmp/${{ inputs.deploy-image-name }}-img.tar
+          name: ${{ inputs.deploy-image-name }}
+          path: /tmp/${{ inputs.deploy-image-name }}.tar
 
 
 
