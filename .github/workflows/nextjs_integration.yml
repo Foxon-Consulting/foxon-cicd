@@ -8,7 +8,7 @@ on:
         required: true
         type: string
         default: 'app-artifact'
-      deploy-image-name: 
+      deploy-image-name:
         description: 'Name of image to deploy'
         required: true
         type: string
@@ -69,6 +69,3 @@ jobs:
         with:
           name: ${{ inputs.deploy-image-name }}
           path: /tmp/${{ inputs.deploy-image-name }}.tar
-
-
-

@@ -8,12 +8,12 @@ on:
       docker-password:
         required: true
     inputs:
-      deploy-image-name: 
+      deploy-image-name:
         description: 'Name of image to deploy'
         required: true
         type: string
         default: 'app-deploy-img'
-    
+
 
 
 jobs:
