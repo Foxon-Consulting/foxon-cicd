@@ -2,11 +2,6 @@ name: Delivery
 
 on:
   workflow_call:
-    secrets:
-      docker-username:
-        required: true
-      docker-password:
-        required: true
     inputs:
       deploy-image-name:
         description: 'Name of image to deploy'
@@ -26,8 +21,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.docker-username}}
-          password: ${{ secrets.docker-password }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Load image
         run: |
           docker load --input /tmp/${{ inputs.deploy-image-name }}.tar
