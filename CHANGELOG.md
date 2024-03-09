@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.4.0](https://github.com/Foxon-Consulting/github-actions/compare/1.3.0...1.4.0) (2024-03-09)
+
+
+### Features
+
+* :construction_worker: remove image artifact if not in main branch ([#16](https://github.com/Foxon-Consulting/github-actions/issues/16)) ([eae01fd](https://github.com/Foxon-Consulting/github-actions/commit/eae01fd8b7a929ca1eadec5b434a2b68b7346e50))
+* :sparkles: add docker build and delivery workflow ([#17](https://github.com/Foxon-Consulting/github-actions/issues/17)) ([178cd4f](https://github.com/Foxon-Consulting/github-actions/commit/178cd4f7a95261b93743009e9026f96952a6d1f8))
+* :sparkles: nextjs_integration and delivery workflows([#15](https://github.com/Foxon-Consulting/github-actions/issues/15)) ([5be22d4](https://github.com/Foxon-Consulting/github-actions/commit/5be22d40d461495cd16f2921d0594a2c8da6dcf8))
+* add nextjs integration and delivery workflow ([#14](https://github.com/Foxon-Consulting/github-actions/issues/14)) ([d2aacd8](https://github.com/Foxon-Consulting/github-actions/commit/d2aacd8f15f69121cf6b33d0f0e1e5fa5405f5fb))
+* add nextjs integration workflow ([#12](https://github.com/Foxon-Consulting/github-actions/issues/12)) ([9d8a835](https://github.com/Foxon-Consulting/github-actions/commit/9d8a83534f0ae2c2351e93e575f7c1313d77c0ba))
+
+
+### Bug Fixes
+
+* :arrow_up: upgrade some actions to cope with warning about node version ([#18](https://github.com/Foxon-Consulting/github-actions/issues/18)) ([5a0089a](https://github.com/Foxon-Consulting/github-actions/commit/5a0089a436ec901d344253853aa5f458a0c7e41d))
+
 ## [1.3.0](https://github.com/Foxon-Consulting/github-actions/compare/1.2.0...1.3.0) (2023-09-26)
 
 
