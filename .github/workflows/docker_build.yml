@@ -7,6 +7,10 @@ on:
         description: 'Name of artifact to download'
         required: false
         type: string
+      dockerfile-path:
+        description: 'Path to Dockerfile'
+        required: true
+        type: string
       deploy-image-name:
         description: 'Name of image to deploy'
         required: true
@@ -34,7 +38,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ${{ inputs.dockerfile-path }}
           push: false
           tags: ${{ inputs.deploy-image-name }}:temp
           outputs: type=docker,dest=/tmp/${{ inputs.deploy-image-name }}.tar
