@@ -1,6 +1,11 @@
 name: release-please
 description: "Release Please automates releases for your projects using conventional commits."
 
+inputs:
+  RELEASE_PLEASE_TOKEN:
+    description: "The token to use for authenticating with GitHub."
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -8,3 +13,4 @@ runs:
   - uses: google-github-actions/release-please-action@v3
     with:
       command: manifest
+      token: ${{ inputs.RELEASE_PLEASE_TOKEN }}
