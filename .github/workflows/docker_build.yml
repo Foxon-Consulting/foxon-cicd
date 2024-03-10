@@ -1,21 +1,20 @@
-name: Build
+name: Docker Build
 
 on:
   workflow_call:
     inputs:
-      artifact-name:
-        description: 'Name of artifact to download'
-        required: false
-        type: string
       dockerfile-path:
         description: 'Path to Dockerfile'
         required: true
         type: string
-      deploy-image-name:
-        description: 'Name of image to deploy'
-        required: true
+      download-artifact-name:
+        description: 'Name of artifact to download before running docker build. Example: output of npm build. If not given, no download is done'
+        required: false
         type: string
-        default: 'app-deploy-img'
+      upload-artifact-name:
+        description: 'Name of the image artifact to upload. If not given, no upload is done'
+        required: false
+        type: string
 
 jobs:
   build-image:
@@ -25,10 +24,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download artifact
-        if: ${{ inputs.artifact-name != null }}
+        if: ${{ inputs.download-artifact-name != null }}
         uses: actions/download-artifact@v4
         with:
-          name: ${{ inputs.artifact-name }}
+          name: ${{ inputs.download-artifact-name }}
           path: ./out/
 
       - name: Set up Docker Buildx
@@ -40,12 +39,12 @@ jobs:
           context: .
           file: ${{ inputs.dockerfile-path }}
           push: false
-          tags: ${{ inputs.deploy-image-name }}:temp
-          outputs: type=docker,dest=/tmp/${{ inputs.deploy-image-name }}.tar
+          tags: docker-image:temp
+          outputs: type=docker,dest=/tmp/docker-image.tar
 
       - name: Upload artifact
-        if: github.event_name == 'release'
+        if: ${{ inputs.upload-artifact-name != null }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ inputs.deploy-image-name }}
-          path: /tmp/${{ inputs.deploy-image-name }}.tar
+          name: ${{ inputs.upload-artifact-name }}
+          path: /tmp/docker-image.tar
