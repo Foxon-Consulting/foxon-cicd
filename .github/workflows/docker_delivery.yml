@@ -33,18 +33,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Load image
         run: |
-          docker load --input /tmp/${{ inputs.download-artifact-name }}.tar
-      # Tag image with git sha if not a tag, with the tag if it is a tag
-      # - name: Tag image
-      #   run: |
-      #     echo $GITHUB_REF_TYPE
-      #     if [ $GITHUB_REF_TYPE == 'tag' ]; then
-      #       docker tag ${{ inputs.deploy-image-name }}:temp foxonconsulting/${{ inputs.deploy-image-name }}:${GITHUB_REF_NAME}
-      #       docker push foxonconsulting/${{ inputs.deploy-image-name }}:${GITHUB_REF_NAME}
-      #     else
-      #       docker tag ${{ inputs.deploy-image-name }}:temp foxonconsulting/${{ inputs.deploy-image-name }}:${GITHUB_SHA}
-      #       docker push foxonconsulting/${{ inputs.deploy-image-name }}:${GITHUB_SHA}
-      #     fi
+          docker load --input /tmp/docker-image.tar
       - name: Tag image
         run: |
           docker tag ${{ inputs.deploy-image-name }}:temp foxonconsulting/${{ inputs.deploy-image-name }}:${{ inputs.deploy-image-tag }}
