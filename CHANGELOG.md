@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0](https://github.com/Foxon-Consulting/github-actions/compare/1.4.0...1.5.0) (2024-03-12)
+
+
+### Features
+
+* :sparkles: add docker_build, docker_delivery and setup workflow ([#20](https://github.com/Foxon-Consulting/github-actions/issues/20)) ([894aa9f](https://github.com/Foxon-Consulting/github-actions/commit/894aa9f9c47c15cf7806e19c070b5121e427890e))
+
+
+### Bug Fixes
+
+* add release-please token as inputs in standard.yml ([#21](https://github.com/Foxon-Consulting/github-actions/issues/21)) ([8be95df](https://github.com/Foxon-Consulting/github-actions/commit/8be95dff2d7360cea7a3ae63dc80cf536b79d7aa))
+* add token in release please to trigger workflow ([#19](https://github.com/Foxon-Consulting/github-actions/issues/19)) ([3925aba](https://github.com/Foxon-Consulting/github-actions/commit/3925aba0e659639af08e31c7a7f231cafe1613aa))
+
 ## [1.4.0](https://github.com/Foxon-Consulting/github-actions/compare/1.3.0...1.4.0) (2024-03-09)
 
 
