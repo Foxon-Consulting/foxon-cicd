@@ -1,0 +1,33 @@
+name: Docker Build
+
+on:
+  workflow_call:
+    outputs:
+      name:
+        description: "Name generated for the artifact"
+        value: ${{ jobs.setup.outputs.name }}
+      version:
+        description: "Version generated for the artifact"
+        value: ${{ jobs.setup.outputs.version }}
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.artifact_naming.outputs.name }}
+      version: ${{ steps.artifact_naming.outputs.version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: artifact naming
+        id: artifact_naming
+        run: |
+          release_name="${{ github.event.release.name }}"
+          if [ -z "${release_name}" ]; then
+            name=$(git rev-parse --short HEAD)
+          else
+              name=$(echo "$release_name" | awk -F ':' '{print $1}')
+          fi
+          version=$(echo "$release_name" | awk -F ': ' '{gsub(/^v/, "", $2); print $2}')
+          echo "name=${name}" >> $GITHUB_OUTPUT
+          echo "version=${version}" >> $GITHUB_OUTPUT
