@@ -24,10 +24,11 @@ jobs:
         run: |
           release_name="${{ github.event.release.name }}"
           if [ -z "${release_name}" ]; then
-            name=$(git rev-parse --short HEAD)
+            name=$(git branch)
+            version=$(git rev-parse --short HEAD)
           else
-              name=$(echo "$release_name" | awk -F ':' '{print $1}')
+            name=$(echo "$release_name" | awk -F ':' '{print $1}')
+            version=$(echo "$release_name" | awk -F ': ' '{gsub(/^v/, "", $2); print $2}')
           fi
-          version=$(echo "$release_name" | awk -F ': ' '{gsub(/^v/, "", $2); print $2}')
           echo "name=${name}" >> $GITHUB_OUTPUT
           echo "version=${version}" >> $GITHUB_OUTPUT
