@@ -24,7 +24,7 @@ jobs:
         run: |
           release_name="${{ github.event.release.name }}"
           if [ -z "${release_name}" ]; then
-            name=$(git branch)
+            name=artifact
             version=$(git rev-parse --short HEAD)
           else
             name=$(echo "$release_name" | awk -F ':' '{print $1}')
