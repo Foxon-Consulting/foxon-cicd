@@ -36,5 +36,5 @@ jobs:
           docker load --input /tmp/docker-image.tar
       - name: Tag image
         run: |
-          docker tag ${{ inputs.deploy-image-name }}:temp foxonconsulting/${{ inputs.deploy-image-name }}:${{ inputs.deploy-image-tag }}
+          docker tag docker-image:temp foxonconsulting/${{ inputs.deploy-image-name }}:${{ inputs.deploy-image-tag }}
           docker push foxonconsulting/${{ inputs.deploy-image-name }}:${{ inputs.deploy-image-tag }}
