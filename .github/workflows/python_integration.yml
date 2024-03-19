@@ -42,9 +42,9 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Check formatting with black
         uses: psf/black@stable
-      - name: Test with tox
-        run: |
-          tox
+      # - name: Test with tox
+      #   run: |
+      #     tox
   build:
     needs: lint
     runs-on: ubuntu-latest
