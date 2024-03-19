@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/Foxon-Consulting/github-actions/compare/1.5.0...1.6.0) (2024-03-19)
+
+
+### Features
+
+* fix python integration add python delivery ([#23](https://github.com/Foxon-Consulting/github-actions/issues/23)) ([5e580c7](https://github.com/Foxon-Consulting/github-actions/commit/5e580c7b5c0db4a19424cd52046c172369a334e4))
+
 ## [1.5.0](https://github.com/Foxon-Consulting/github-actions/compare/1.4.0...1.5.0) (2024-03-12)
 
 
