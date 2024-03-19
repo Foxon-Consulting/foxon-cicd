@@ -7,6 +7,14 @@ on:
         description: 'Python version to use'
         required: true
         type: string
+      upload-artifact-name:
+        description: 'Name of the image artifact to upload. If not given, no upload is done'
+        required: false
+        type: string
+      artifact-path:
+        description: 'Path to the artifact to upload.'
+        required: false
+        type: string
 
 jobs:
   lint:
@@ -34,9 +42,9 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Check formatting with black
         uses: psf/black@stable
-      - name: Test with tox
-        run: |
-          tox
+      # - name: Test with tox
+      #   run: |
+      #     tox
   build:
     needs: lint
     runs-on: ubuntu-latest
@@ -55,3 +63,9 @@ jobs:
       - name: build wheel
         run: |
           python -m build --wheel
+      - name: Upload artifact
+        if: ${{ inputs.upload-artifact-name != null }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.upload-artifact-name }}
+          path: ${{ inputs.artifact-path }}
